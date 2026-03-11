@@ -75,8 +75,8 @@
 				videoServer1.SetParameter(10, 1); //fast version: read in all history, for empower put to 1 else to 10000
 				videoServer2.SetParameter(10, 1); //fast version: read in all history, for empower put to 1 else to 10000
 				pmInTables.SetParameter(10, 1); //fast version: read in all history, for empower put to 1 else to 10000
-				audioBitRateElement.SetParameter(14, 4); //For empower, set to 4: every 5', 4 points will be read. This leads to 1364 points to be read, which is good. Else set to 10000
-				TSRElement.SetParameter(10, 15); //!!!!!!!!!!!!!!!!!!!!FOR EMPOWER, SET THIS TO 15!!!!!!!!!!!!!!!!!!! Else set to 10000
+				audioBitRateElement.SetParameter(14, 5); //For empower, set to 4: every 5', 4 points will be read. This leads to 1364 points to be read, which is good. Else set to 10000
+				TSRElement.SetParameter(10, 40); //!!!!!!!!!!!!!!!!!!!!FOR EMPOWER, SET THIS TO 40!!!!!!!!!!!!!!!!!!! Else set to 10000
 				Thread.Sleep(5000);
 				engine.GenerateInformation("Enabling history data read-in");
 				videoServer1.SetParameter(102, 1);
