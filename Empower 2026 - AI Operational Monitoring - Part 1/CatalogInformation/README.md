@@ -1,4 +1,4 @@
-# Empower 2026 - AI Operational Monitoring - Part 1
+# Empower 2026 - AI Operational Monitoring
 
 This package deploys several elements used throughout the *AI Operational Monitoring* session at Empower 2026.
 In this session, the features *Pattern Matching*, *Behavioral Anomaly Detection*, *BAD Feedback*, *Time Scoped Relation Learning*,
