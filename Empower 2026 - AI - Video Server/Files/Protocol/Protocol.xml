@@ -224,16 +224,6 @@ DATE		VERSION		AUTHOR				COMMENTS
 				<LengthType>next param</LengthType>
 				<DefaultValue>No</DefaultValue>
 			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>General</Page>
-						<Column>0</Column>
-						<Row>5</Row>
-					</Position>
-				</Positions>
-			</Display>
 		</Param>
 		<Param id="6" trending="false" save="true">
 			<Name>TimeOfProcessing</Name>
@@ -424,7 +414,7 @@ public class QAction
     static Random rand = new Random();
     public static void Run(SLProtocol protocol) //Adds a new datapoint every time the timer rings
     {
-        if (int.Parse(protocol.GetParameter(Parameter.unblockqa1_8).ToString(), CultureInfo.InvariantCulture) == 0)
+        if (int.Parse(protocol.GetParameter(8).ToString(), CultureInfo.InvariantCulture) == 0)
         {
             return;
         }
@@ -951,17 +941,17 @@ public class QAction
         {
             if (timeOfProcessing > now)
                 return;
-            protocol.SetParameter(Math.Max(30,Parameter.cpu), values[nextLine], timeOfProcessing);
-            protocol.SetParameter(Math.Max(30,Parameter.freedisk), values2[nextLine], timeOfProcessing);
-            protocol.SetParameter(Math.Max(30,Parameter.availablephysicalmemory), values3[nextLine], timeOfProcessing);
-            protocol.SetParameter(Math.Max(30,Parameter.videofeed), values4[nextLine], timeOfProcessing);
+            protocol.SetParameter(1, values[nextLine], timeOfProcessing);
+            protocol.SetParameter(2, values2[nextLine], timeOfProcessing);
+            protocol.SetParameter(3, values3[nextLine], timeOfProcessing);
+            protocol.SetParameter(4, values4[nextLine], timeOfProcessing);
             nextLine++;
             timeOfProcessing = timeOfProcessing.AddSeconds(pollingTime);
             protocol.SetParameter(6, timeOfProcessing.ToOADate());
             protocol.SetParameter(7, nextLine);
-            if (nextLine == values.Count) //End of file, don't return to front (for proactive alarm that is displayed) but stop execution.
+            if (nextLine == values.Count) //End of file, restart
             {
-                protocol.SetParameter(2, 1);
+                protocol.SetParameter(7,0);
             }
 
         }
