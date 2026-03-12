@@ -26,6 +26,11 @@
 
 		public void InstallDefaultContent()
 		{
+			if(DateTime.Now > new DateTime(2026,3,17,12,0,0))
+			{
+				engine.GenerateInformation("The default content installation is only intended for demonstration purposes during the Empower 2026 event. Please contact support if you want to use or modify this content.");
+				return;
+			}
 			#region element creation
 			int viewID = CreateViews(new string[] { "DataMiner Catalog", "Empower 2026", "AI Operational Monitoring", "Behavioral Anomaly Detection Demo" });
 			CreateElement("Empower 2026 - AI - Audio bit rate", "Empower 2026 - AI - Audio bit rate CBR-VBR", "0.0.0.1", viewID, "Default", "Default");

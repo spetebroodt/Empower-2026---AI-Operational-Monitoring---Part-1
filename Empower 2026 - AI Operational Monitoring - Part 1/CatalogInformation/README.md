@@ -1,12 +1,25 @@
 # Empower 2026 - AI Operational Monitoring
 
-This package deploys several elements used throughout the *AI Operational Monitoring* session at Empower 2026.
-In this session, the features *Pattern Matching*, *Behavioral Anomaly Detection*, *BAD Feedback*, *Time Scoped Relation Learning*,
-*Relational Anomaly Detection* and *Document Intelligence* are showcased using these elements.
-The elements will be deployed under the view *DataMiner Catalog* > *Empower 2026* > *AI Operational Monitoring*.
 
-The package additionally deploys the *RAD Manager* and *Document Intelligence* low code apps. These will be used for the exercises
-in the session.
+This package is the accompanying package for the **Practical AI for operational monitoring** session in the beginners track of  Empower 2026.
+During this session, we will get handson with *Pattern Matching*, *Behavioral Anomaly Detection*, *BAD Feedback*, *Time Scoped Relation Learning*,
+*Relational Anomaly Detection* and *Document Intelligence*.
 
-The elements deployed by this package will read in history data slowly and should therefore be installed before the sessions start. It takes 24h to have all history data ready. 
-This package should be used together with the companion package [Empower 2026 - AI Operational Monitoring - Part 2](https://catalog.dataminer.services/details/a320bbc1-1351-4dd4-8e40-d581e173fdaa), which loads some additional data in the elements created by this package. 
+The package deploys five elements under the view *DataMiner Catalog* > *Empower 2026* > *AI Operational Monitoring*.
+You can use the elements to follow along with the exercises during the session and to explore the capabilities of various AI features in DataMiner.
+
+<p align="center">
+  <img src="./Images/elements.png" alt="Elements in DataMiner Cube">
+</p>
+
+The package will also deploy a few low code apps on your system:
+- The Document Intelligence app, which will be needed to follow along with the exercises on document intelligence.
+- The RAD Manager app, which will be needed to follow along with the exercises on relational anomaly detection.
+
+<p align="center">
+  <img src="./Images/appMain.png" alt="Low code apps in the package">
+</p>
+
+The elements deployed by this package will read in history data slowly and should therefore be deployed during the very first
+session entitled **Getting started with DataMiner in seconds**. This session takes place
+on Tuesday 17/03/2026 at 9h30.
