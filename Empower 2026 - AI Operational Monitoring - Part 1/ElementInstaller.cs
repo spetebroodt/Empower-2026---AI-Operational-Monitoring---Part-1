@@ -34,25 +34,11 @@
 			viewID = CreateViews(new string[] { "DataMiner Catalog", "Empower 2026", "AI Operational Monitoring", "Pattern Matching Demo" });
 			CreateElement("Empower 2026 - AI - Video server 1", "Empower 2026 - AI - Video Server", "0.0.0.1", viewID);
 			CreateElement("Empower 2026 - AI - Video server 2", "Empower 2026 - AI - Video Server", "0.0.0.1", viewID);
-			//CreateElement("Empower 2026 - AI - PM in tables", "Empower 2026 - AI - PM in Tables", "1.0.0.3", viewID);
-			//CreateElement("Empower 2026 - AI - Pattern Event Creator", "Empower 2026 - AI - Pattern Event Creator", "0.0.0.1", viewID);
 
 			viewID = CreateViews(new string[] { "DataMiner Catalog", "Empower 2026", "AI Operational Monitoring", "Relational Anomaly Detection Demo" });
 			string lastElementName = "Empower 2026 - AI - DAB Transmitter";
 			CreateElement(lastElementName, "Empower 2026 - AI - Commtia DAB", "1.0.0.1", viewID, "TrendTemplate_PA_Demo", "AlarmTemplate_PA_Demo");
 			Thread.Sleep(5000);
-
-
-			/*viewID = CreateViews(new string[] { "DataMiner Catalog", "Empower 2026", "AI Operational Monitoring", "Proactive Detection Demo" });
-			CreateElement("Empower 2026 - AI - SFP Monitor", "Empower 2026 - AI - SFP", "0.0.0.1", viewID);
-			CreateElement("Empower 2026 - AI - AMS Server", "Empower 2026 - AI - AMS Server", "0.0.0.3", viewID);*/
-
-			/*int CMSViewID = CreateViews(new string[] { "DataMiner Catalog", "Empower 2026","AI Operational Monitoring", "Proactive Detection Demo",
-				"Content Management Servers" });
-			CreateElement("Empower 2026 - AI - CMS 1", "Empower 2026 - AI - Content Management Server 1", "0.0.0.1", CMSViewID);
-			CreateElement("Empower 2026 - AI - CMS 2", "Empower 2026 - AI - Content Management Server 2", "0.0.0.1", CMSViewID);
-			CreateElement("Empower 2026 - AI - CMS 3", "Empower 2026 - AI - Content Management Server 3", "0.0.0.1", CMSViewID);
-			//AssignVisioToView(CMSViewID, "Empower 2025 - AI - Content Management Server.vsdx");*/
 			#endregion
 
 			#region Element data loading
@@ -65,7 +51,6 @@
 			engine.GenerateInformation("Fetching elements");
 			var videoServer1 = engine.FindElement("Empower 2026 - AI - Video server 1");
 			var videoServer2 = engine.FindElement("Empower 2026 - AI - Video server 2");
-			//var pmInTables = engine.FindElement("Empower 2026 - AI - PM in tables");
 			var audioBitRateElement = engine.FindElement("Empower 2026 - AI - Audio bit rate");
 			var TSRElement= engine.FindElement("Empower 2026 - AI - Task Manager");
 
@@ -74,14 +59,12 @@
 				engine.GenerateInformation("Specifying number of history points to read");
 				videoServer1.SetParameter(10, 1); //fast version: read in all history, for empower put to 1 else to 10000
 				videoServer2.SetParameter(10, 1); //fast version: read in all history, for empower put to 1 else to 10000
-				//pmInTables.SetParameter(10, 1); //fast version: read in all history, for empower put to 1 else to 10000
-				audioBitRateElement.SetParameter(14, 6); //For empower, set to 5: every 5', 5 points will be read. This leads to 1364 points to be read, which is good. Else set to 10000
-				TSRElement.SetParameter(10, 789); //!!!!!!!!!!!!!!!!!!!!FOR EMPOWER, SET THIS TO 40!!!!!!!!!!!!!!!!!!! Else set to 10000
+				audioBitRateElement.SetParameter(14, 5); //For empower, set to 5: every 5', 5 points will be read. This leads to 1364 points to be read, which is good. Else set to 10000
+				TSRElement.SetParameter(10, 40); //!!!!!!!!!!!!!!!!!!!!FOR EMPOWER, SET THIS TO 40!!!!!!!!!!!!!!!!!!! Else set to 10000
 				Thread.Sleep(5000);
 				engine.GenerateInformation("Enabling history data read-in");
 				videoServer1.SetParameter(102, 1);
 				videoServer2.SetParameter(102, 1);
-				//pmInTables.SetParameter(506, 1);
 				audioBitRateElement.SetParameter(506, 1);
 				TSRElement.SetParameter(506, 1);
 			}
