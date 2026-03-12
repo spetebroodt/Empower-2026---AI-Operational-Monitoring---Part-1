@@ -3596,6 +3596,7 @@ public class QAction
             nextLine++;
         	if(nextLine>=sum.Count - 5){
             	nextLine=2300;
+				break; //Break here or else the check in the while condition will keep you running
 	        }
 	        timeOfProcessing=timeOfProcessing.AddSeconds(pollingTime);
         }

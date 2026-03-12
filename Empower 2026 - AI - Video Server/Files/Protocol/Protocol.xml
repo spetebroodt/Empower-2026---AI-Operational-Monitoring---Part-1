@@ -359,15 +359,10 @@ DATE		VERSION		AUTHOR				COMMENTS
 				<Type>number</Type>
 			</Measurement>
 		</Param>
-		<Param id="11" trending="false" save="true">
+		<Param id="11">
 			<Name>DummyAddValue</Name>
 			<Description>Dummy For Adding Value</Description>
-			<Type>fixed</Type>
-			<Interprete>
-				<RawType>other</RawType>
-				<LengthType>next param</LengthType>
-				<Type>string</Type>
-			</Interprete>
+			<Type>dummy</Type>
 		</Param>
 		<Param id="512" trending="false">
 			<Name>Read Data</Name>
@@ -383,7 +378,6 @@ DATE		VERSION		AUTHOR				COMMENTS
 	<Groups>
 		<Group id="1">
 			<Type>poll action</Type>
-			<Condition><![CDATA[id:2 == 1]]></Condition>
 			<Content>
 				<Action>2</Action>
 			</Content>

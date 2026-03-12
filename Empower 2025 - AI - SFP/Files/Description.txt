@@ -1,2 +1,0 @@
-Protocol Name: Empower 2025 - AI - SFP
-Protocol Version: 0.0.0.1
