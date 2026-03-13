@@ -1,0 +1,48 @@
+﻿EXAMPLE OUTPUT:
+{
+	"provider": "Skyline",
+
+	"event": {
+		"event_name": "Skyline Communications Empower event",
+		"start_time": "19/03/2025 10:00:00",
+		"end_time": "21/03/2025 17:30:00"
+	},
+	"satellites": [
+		{
+			"satellite_name": "SKY3B-3E",
+			"uplink": {
+				"frequency": "13062.5 MHz",
+				"polarization": "Horizontal"
+			},
+			"downlink": {
+				"frequency": "11262.5 MHz",
+				"polarization": "Vertical"
+			},
+			"parameters": {
+				"modulation_standard": "NS4",
+				"symbol_rate": "35.294 MSym/s",
+				"fec": "7/8",
+				"roll_off": "2%"
+				"video_format": "1080i50",
+                "encryption_type": "BISS-1",
+                "dolby_audio": "No"
+            },
+            "audio_channel_pattern": [
+                { "channel": 1, "description": "PGM ENGLISH STEREO LEFT" },
+                { "channel": 2, "description": "PGM ENGLISH STEREO RIGHT" },
+                { "channel": 3, "description": "INTERNATIONAL SOUND STEREO LEFT" },
+                { "channel": 4, "description": "INTERNATIONAL SOUND STEREO RIGHT" },
+                { "channel": 8, "description": "OTHER" }
+            ]
+			}
+		}
+	]
+}
+
+REQUIRED FORMATS:
+Date values should be formatted as dd/mm/yyyy hh:mm:ss.
+Frequency values should be formatted in MHz with 6 digits and 3 decimals places (e.g., 123.567 MHz). 
+Symbol rate should be formatted in MSym/s with 3 decimals.
+
+POSSIBLE VALUES:
+"provider": ["Skyline Communications", "Disney"],
