@@ -535,6 +535,8 @@ public class QAction
                     }
                 }
                 timeOfProcessing = timeOfProcessing.AddSeconds(pollingTime);
+                if (timeOfProcessing >= DateTime.Now)
+                    break;
             }
             protocol.Log(8, 5, "QA 03 Finished.");
             protocol.SetParameter(4, timeOfProcessing.ToOADate());
