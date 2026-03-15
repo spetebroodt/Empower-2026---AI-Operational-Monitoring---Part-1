@@ -30,6 +30,7 @@
 			int viewID = CreateViews(new string[] { "DataMiner Catalog", "Empower 2026", "AI Operational Monitoring", "Behavioral Anomaly Detection Demo" });
 			CreateElement("Empower 2026 - AI - Audio bit rate", "Empower 2026 - AI - Audio bit rate CBR-VBR", "0.0.0.1", viewID, "Default", "Default");
 			CreateElement("Empower 2026 - AI - Task Manager", "Empower 2026 - AI - TSR", "1.0.0.4", viewID);
+			CreateElement("Empower 2026 - AI - TSRFast", "Empower 2026 - AI - TSRFast", "1.0.0.4", viewID);
 
 			viewID = CreateViews(new string[] { "DataMiner Catalog", "Empower 2026", "AI Operational Monitoring", "Pattern Matching Demo" });
 			CreateElement("Empower 2026 - AI - Video server 1", "Empower 2026 - AI - Video Server", "0.0.0.1", viewID);
@@ -53,14 +54,16 @@
 			var videoServer2 = engine.FindElement("Empower 2026 - AI - Video server 2");
 			var audioBitRateElement = engine.FindElement("Empower 2026 - AI - Audio bit rate");
 			var TSRElement= engine.FindElement("Empower 2026 - AI - Task Manager");
+			var TSRFastElement= engine.FindElement("Empower 2026 - AI - TSRFast");
 
-			if (videoServer1 != null && videoServer2 != null && audioBitRateElement != null && TSRElement != null)
+			if (videoServer1 != null && videoServer2 != null && audioBitRateElement != null && TSRElement != null && TSRFastElement != null)
 			{
 				engine.GenerateInformation("Specifying number of history points to read");
 				videoServer1.SetParameter(10, 1); //fast version: read in all history, for empower put to 1 else to 10000
 				videoServer2.SetParameter(10, 1); //fast version: read in all history, for empower put to 1 else to 10000
 				audioBitRateElement.SetParameter(14, 5); //For empower, set to 5: every 5', 5 points will be read. This leads to 1364 points to be read, which is good. Else set to 10000
 				TSRElement.SetParameter(10, 40); //!!!!!!!!!!!!!!!!!!!!FOR EMPOWER, SET THIS TO 40!!!!!!!!!!!!!!!!!!! Else set to 10000
+				TSRFastElement.SetParameter(10, 10000); 
 				Thread.Sleep(5000);
 				engine.GenerateInformation("Enabling history data read-in");
 				videoServer1.SetParameter(102, 1);
