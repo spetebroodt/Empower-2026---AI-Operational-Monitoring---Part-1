@@ -218,7 +218,7 @@ DATE		VERSION		AUTHOR				COMMENTS
 				<LengthType>next param</LengthType>
 			</Interprete>
 		</Param>
-		<Param id="5" trending="true" save="true">
+		<Param id="5" trending="true" save="true" historySet="true">
 			<Name>Resource Monitor</Name>
 			<Description>Available Physical Memory</Description>
 			<Type>read</Type>
@@ -433,7 +433,7 @@ public class QAction
 
 
         int pollingTime = 600;
-        int maximumNumberOfUpdates = 26; //calculated so that for empower everybody should have a proactive alarm.
+        int maximumNumberOfUpdates = 13; //calculated so that for empower everybody should have a proactive alarm.
         double doubletime = Convert.ToDouble(protocol.GetParameter(4));
         int nextLine = int.Parse(protocol.GetParameter(9).ToString(), CultureInfo.InvariantCulture);
         DateTime timeOfProcessing = DateTime.FromOADate(doubletime);
@@ -609,7 +609,7 @@ public class QAction
 	<Timers>
 		<Timer id="1">
 			<Name>Timer1</Name>
-			<Time initial="random=5:10">600000</Time>
+			<Time initial="random=5:10">300000</Time>
 			<Content>
 				<Group>1</Group>
 			</Content>
